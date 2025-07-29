@@ -279,92 +279,6 @@ async function sendXMLPost(postAddress, xmlData) {
 }
 
 
-// app.get("/sendOTP", async (req, res)=>{
-
-
-
-//     const xmlData = `
-//     <?xml version="1.0" encoding="UTF-8"?>
-//     <mainbody>
-//       <header>
-//         <usercode>Kullanici_adi</usercode>
-//         <password>Sifre</password>
-//         <msgheader>GondericiAdi</msgheader>
-//         <appkey>xxx</appkey>
-//       </header>
-//       <body>
-//         <msg>###1234###></msg>
-//         <no>5012345678</no>
-//       </body>
-//     </mainbody>
-//     `;
-
-//     // Fonksiyonu çağır ve yanıtı al
-//     let response = await sendXMLPost('https://api.netgsm.com.tr/sms/send/otp', xmlData);
-
-// });
-
-// app.get("/googleauth", (req, res) => {
-
-
-//     // Create a new TOTP object.
-//     let totp = new OTPAuth.TOTP({
-//         // Provider or service the account is associated with.
-//         issuer: "ACME",
-//         // Account identifier.
-//         label: "AzureDiamond",
-//         // Algorithm used for the HMAC function.
-//         algorithm: "SHA1",
-//         // Length of the generated tokens.
-//         digits: 6,
-//         // Interval of time for which a token is valid, in seconds.
-//         period: 30,
-//         // Arbitrary key encoded in base32 or OTPAuth.Secret instance
-//         // (if omitted, a cryptographically secure random secret is generated).
-//         secret: "NB2W45DFOIZA", // or `OTPAuth.Secret.fromBase32("NB2W45DFOIZA")` or `new OTPAuth.Secret()`
-//     });
-
-//     // A cryptographically secure random secret can also be generated with:
-//     let secret = new OTPAuth.Secret({ size: 20 });
-
-//     // Generate a token (returns the current token as a string).
-//     let token = totp.generate();
-
-//     // Validate a token (returns the token delta or null if it is not found in the
-//     // search window, in which case it should be considered invalid).
-//     let delta = totp.validate({ token, window: 1 });
-
-//     // Get the remaining seconds until the current token changes.
-//     let seconds = totp.period - (Math.floor(Date.now() / 1000) % totp.period);
-
-//     // Convert to Google Authenticator key URI format (usually the URI is encoded
-//     // in a QR code that can be scanned by the user. This functionality is outside
-//     // the scope of the project, but there are many libraries that can be used for
-//     // this purpose).
-//     //
-//     // otpauth://totp/ACME:AzureDiamond?issuer=ACME&secret=NB2W45DFOIZA&algorithm=SHA1&digits=6&period=30
-//     let uri = totp.toString(); // or 'OTPAuth.URI.stringify(totp)'
-
-//     // Convert from Google Authenticator key URI format.
-//     totp = OTPAuth.URI.parse(uri);
-// });
-
-// app.get("/sendSMS", (req, res) => {
-
-
-
-
-//     const client = require('twilio')(accountSid, authToken);
-
-//     client.messages
-//         .create({
-//             body: 'Hello from twilio-node',
-//             to: '+905464808443', // Text your number
-//             from: '+905466406365', // From a valid Twilio number
-//         })
-//         .then((message) => console.log(message.sid));
-// });
-
 app.get('/payment', (req, res) => {
     res.render('payment', renderParams(req, null, null));
 });
@@ -382,40 +296,6 @@ app.post('/api/subs', (req, res) => {
     });
 
 
-    /* let price = 0, 
-        paidPrice = 0, 
-        currency = "TRY", 
-        basketId = result.recordset[0].Id, 
-        paymentCard = req.body.payCard, 
-        buyer = "", 
-        shippingAddress, 
-        billingAddress, 
-        basketItems= "";
-
-    const request = {
-        locale: Iyzipay.LOCALE.TR,
-        conversationId: '123456789',
-        price: price,
-        paidPrice: paidPrice,
-        currency: currency,
-        installment: '1',
-        basketId: basketId,
-        paymentChannel: Iyzipay.PAYMENT_CHANNEL.WEB,
-        paymentGroup: Iyzipay.PAYMENT_GROUP.PRODUCT,
-        paymentCard: paymentCard,
-        buyer: buyer,
-        shippingAddress: shippingAddress,
-        billingAddress: billingAddress,
-        basketItems: basketItems
-    };
-
-    iyzipay.payment.create(request, (err, result) => {
-        if (err) {
-            return res.status(500).json(err);
-        }
-        res.status(200).json(result);
-    });
-     */
 });
 
 
