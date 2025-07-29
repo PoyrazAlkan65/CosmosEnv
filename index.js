@@ -353,8 +353,6 @@ async function sendXMLPost(postAddress, xmlData) {
 
 
 
-//     const accountSid = 'AC2aff13fcb265145f00280982dae9621a';
-//     const authToken = '00fce27fe2187de6d03ff9b8924a7564';
 
 //     const client = require('twilio')(accountSid, authToken);
 
