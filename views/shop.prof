@@ -1,0 +1,8 @@
+<main>
+  <section class="full-width_padding" style="background-color: #faf9f8">
+    {{>shopCategories componentData=data.allCategories}}
+  </section><!-- /.full-width_padding-->
+  <section class="products-carousel container">
+    {{>shopProducts componentData=data.activeProduct}}
+  </section>
+</main>

@@ -1,0 +1,196 @@
+<main>
+  <div class="mb-4 pb-4"></div>
+  <section class="login-register container">
+    <h2 class="d-none">Login & Register</h2>
+    <ul class="nav nav-tabs mb-5" id="login_register" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link nav-link_underscore active" id="login-tab" data-bs-toggle="tab" href="#tab-item-login"
+          role="tab" aria-controls="tab-item-login" aria-selected="true">Giriş Yap</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link nav-link_underscore" id="register-tab" data-bs-toggle="tab" href="#tab-item-register"
+          role="tab" aria-controls="tab-item-register" aria-selected="false">Kaydol</a>
+      </li>
+    </ul>
+    <div class="tab-content pt-2" id="login_register_tab_content">
+      <div class="tab-pane fade show active" id="tab-item-login" role="tabpanel" aria-labelledby="login-tab">
+        <div class="login-form">
+          <form name="login-form" class="needs-validation" novalidate>
+
+            <div class="form-floating mb-3">
+              <input name="login_email" type="email" class="form-control form-control_gray" id="login_email"
+                placeholder="Email*" required>
+              <label for="customerNameEmailInput1">Email*</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input name="login_password" type="password" class="form-control form-control_gray" id="login_password"
+                placeholder="Şifre *" required>
+              <label for="customerPasswodInput">Şifre*</label>
+            </div>
+
+            <button class="btn btn-primary w-100 text-uppercase" type="submit">Giriş Yap</button>
+
+            <div class="customer-option mt-4 text-center">
+              <span class="text-secondary">Henüz Hesabınız Yok Mu?</span>
+              <a href="#register-tab" class="btn-text js-show-register">Hesap Oluştur</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tab-item-register" role="tabpanel" aria-labelledby="register-tab">
+        <div class="register-form">
+          <form name="register-form" class="needs-validation" novalidate>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input name="register_name" type="text" class="form-control form-control_gray" id="register_name"
+                    placeholder="İsim*" required>
+                  <label for="register_name">İsim*</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input name="register_surname" type="text" class="form-control form-control_gray"
+                    id="register_surname" placeholder="Soyisim*" required>
+                  <label for="register_surname">Soyisim*</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="register_email" type="email" class="form-control form-control_gray" id="register_email"
+                placeholder="E-mail*" required>
+              <label for="customerEmailRegisterInput">E-mail*</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="register_phone" type="text" class="form-control form-control_gray" id="register_phone"
+                placeholder="Phone*" required>
+              <label for="customerPhoneRegisterInput">Phone*</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="register_companyTitle" type="text" class="form-control form-control_gray"
+                id="register_companyTitle" placeholder="Surname *" required>
+              <label for="customerCompanyTitleRegisterInput">Şirket Ünvanı*</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="register_TaxNo" type="text" class="form-control form-control_gray" id="register_taxNo"
+                placeholder="Vergi No*" required>
+              <label for="customerTaxNoRegisterInput">Vergi No*</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="register_taxOffice" type="text" class="form-control form-control_gray"
+                id="register_taxOffice" placeholder="Vergi Dairesi*" required>
+              <label for="customerPasswodInput">Vergi Dairesi*</label>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <select class="form-select form-control_gray" id="drpCity" name="drpCity" required>
+                    <option value="" disabled selected>İl*</option>
+                    <option value="option1">Seçenek 1</option>
+                    <option value="option2">Seçenek 2</option>
+                    <option value="option3">Seçenek 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <select class="form-select form-control_gray" id="drpDistrict" name="drpDistrict" required>
+                    <option value="" disabled selected>İlçe*</option>
+                    <option value="option1">Seçenek 1</option>
+                    <option value="option2">Seçenek 2</option>
+                    <option value="option3">Seçenek 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <input name="register_taxOffice" type="text" class="form-control form-control_gray" id="register_address"
+              placeholder="Adres*" required>
+            <label for="customerPasswodInput">adres</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input name="register_postalCode" type="text" class="form-control form-control_gray" id="register_postalCode"
+            placeholder="Posta Kodu*" required>
+          <label for="customerPasswodInput">Posta Kodu*</label>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <div class="form-floating">
+              <select class="form-select form-control_gray select2" id="drpSektor" name="drpSektor[]" placeholder=""
+                multiple="multiple" required="required">
+                <option value="option1">Seçenek 1</option>
+                <option value="option2">Seçenek 2</option>
+                <option value="option3">Seçenek 3</option>
+              </select>
+              <label for="dropdown_1">Sektör*</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center mb-3 pb-2">
+          <div class="form-check mb-0">
+            <input name="remember" class="form-check-input form-check-input_fill" type="checkbox" value=""
+              id="flexCheckDefault1">
+            <label class="form-check-label text-secondary" for="flexCheckDefault1">Beni Hatırla</label>
+          </div>
+          <a href="./reset_password.html" class="btn-text ms-auto">Şifremi unuttum.</a>
+        </div>
+
+
+        <div class="d-flex align-items-center mb-3 pb-2">
+          <p class="m-0">Kişisel verileriniz, bu web sitesindeki deneyiminizi desteklemek, hesabınıza erişimi yönetmek
+            ve gizlilik politikamızda belirtilen diğer amaçlar için kullanılacaktır.<br>
+            <b>Bu seçeneğe tıklayarak başvuru sözleşmesini kabl etmiş sayılırsınız.</b>
+          </p>
+        </div>
+
+        <button id="btnRegister" class="btn btn-primary w-100 text-uppercase" type="button">Kaydol</button>
+
+        <div class="pb-3"></div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<script>
+
+  $(document).ready(function () {
+
+    $('#btnRegister').click(function () {
+      let register_name = $('#register_name').val();
+      let register_surname = $('#register_surname').val();
+      let register_email = $('#register_email').val();
+      let register_phone = $('#register_phone').val();
+      let register_companyTitle = $('#register_companyTitle').val();
+      let register_taxNo = $('#register_taxNo').val();
+      let register_taxOffice = $('#register_taxOffice').val();
+      let drpCity = $('#drpCity').val();
+      let drpDistrict = $('#drpDistrict').val();
+      let register_address = $('#register_address').val();
+      let register_postalCode = $('#register_postalCode').val();
+      let drpSektor = $('#drpSektor').val();
+      let data = {
+        register_name: register_name,
+        register_surname: register_surname,
+        register_email: register_email,
+        register_phone: register_phone,
+        register_companyTitle: register_companyTitle,
+        register_taxNo: register_taxNo,
+        register_taxOffice: register_taxOffice,
+        drpCity: drpCity,
+        drpDistrict: drpDistrict,
+        register_address: register_address,
+        register_postalCode: register_postalCode,
+        drpSektor: drpSektor
+      }
+    ProfAJAXPost("")
+  });
+
+
+
+  });
+
+</script>

@@ -1,0 +1,79 @@
+    <section class="category-carousel container">
+      <h2 class="section-title fw-semi-bold fs-30 mb-3 pb-xl-2 mb-xl-5 theme-color">Shop by categories</h2>
+
+      <div class="position-relative">
+        <div class="swiper-container js-swiper-slider"
+          data-settings='{
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": 4,
+            "slidesPerGroup": 4,
+            "effect": "none",
+            "loop": true,
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 2,
+                "slidesPerGroup": 2,
+                "spaceBetween": 14
+              },
+              "768": {
+                "slidesPerView": 3,
+                "slidesPerGroup": 3,
+                "spaceBetween": 24
+              },
+              "992": {
+                "slidesPerView": 4,
+                "slidesPerGroup": 1,
+                "spaceBetween": 60,
+                "pagination": false
+              },
+              "1200": {
+                "slidesPerView": 6,
+                "slidesPerGroup": 1,
+                "spaceBetween": 97,
+                "pagination": false
+              }
+            }
+          }'>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m1.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Hospital Equipment</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m2.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Blood Pressure</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m3.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Accessories</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m4.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Personal</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m5.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Independent Living</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy" class="h-auto mb-3 mx-auto d-block" src="/wwwroot/images/home/demo14/m6.jpg" width="145" height="145" alt="">
+              <div class="text-center">
+                <a href="./shop1.html" class="menu-link menu-link_us-s fw-semi-bold theme-color">Pharmacy</a>
+              </div>
+            </div>
+          </div><!-- /.swiper-wrapper -->
+        </div><!-- /.swiper-container js-swiper-slider -->
+      </div><!-- /.position-relative -->
+    </section>

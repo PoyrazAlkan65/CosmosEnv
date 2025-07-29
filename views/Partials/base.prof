@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agu Admin</title>
+    <link rel="icon" href="/wwwroot/images/logo-mobil.svg">
+
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/adminlte.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/OverlayScrollbars.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/datatables.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/datatables.responsive.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/simple-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/bootstrap-toggle.css">
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/select2.css">
+
+    <!--sonradan eklenenler-->
+    <link href="/wwwroot/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="/wwwroot/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="/wwwroot/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="/wwwroot/plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="/wwwroot/css/admincss/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/wwwroot/css/admincss/themes/all-themes.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="/wwwroot/css/main.css">
+    <link rel="stylesheet" href="/wwwroot/css/airdatepicker.css">
+
+
+    <!--sonradan eklenenler-->
+
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+    <script src="/wwwroot/js/jquery.js"></script>
+    <script src="/wwwroot/js/bootstrap.js"></script>
+    <script src="/wwwroot/js/adminlte.js"></script>
+    <script src="/wwwroot/js/bootstrap.bundle.min.js"></script>
+    <script src="/wwwroot/js/Chart.bundle.min.js"></script>
+    <script src="/wwwroot/js/demo.js"></script>
+    <script src="/wwwroot/js/fp2.min.js"></script>
+    <script src="/wwwroot/js/raphael.min.js"></script>
+    <script src="/wwwroot/js/usa_states.min.js"></script>
+    <script src="/wwwroot/js/datatables.js"></script>
+    <script src="/wwwroot/js/datatables.responsive.js"></script>
+    <script src="/wwwroot/js/exif.js"></script>
+    <script src="/wwwroot/js/sweetalert.js"></script>
+    <script src="/wwwroot/js/croppie.min.js"></script>
+    <script src="/wwwroot/js/bootstrap-toggle.js"></script>
+    <script src="/wwwroot/js/select2.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <script src="/wwwroot/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="/wwwroot/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="/wwwroot/plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="/wwwroot/plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="/wwwroot/plugins/raphael/raphael.min.js"></script>
+    <script src="/wwwroot/plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="/wwwroot/plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="/wwwroot/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="/wwwroot/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="/wwwroot/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="/wwwroot/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="/wwwroot/plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="/wwwroot/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/wwwroot/js/adminjs/admin.js"></script>
+    <script src="/wwwroot/js/adminjs/pages/index.js"></script>
+    <script src="/wwwroot/js/airdatepicker.js"></script>
+    <script src="/wwwroot/js/airdatepickerEn.js"></script>
+    <script src="/wwwroot/js/jquery.inputmask.bundle.js"></script>
+    <script src="/wwwroot/js/jquery.multi-select.js"></script>
+    
+    {{!--
+    <script src="/wwwroot/js/nouislider.js"></script> --}}
+    {{!--
+    <script src="/wwwroot/js/editors.js"></script>
+    <script src="/wwwroot/js/form-validation.js"></script>
+    <script src="/wwwroot/js/form-wizard.js"></script> --}}
+    <script src="/wwwroot/js/advanced-form-elements.js"></script>
+    <script src="/wwwroot/js/jquery-input-mask-phone-number.js"></script>
+
+    <!-- Demo Js -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <script src="/wwwroot/js/demo.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.material.min.css">
+    <script>
+        function isFunction(possibleFunction) {
+            return typeof (possibleFunction) === typeof (Function);
+        }
+        function VEPAAJAX(endpoint, data, CallBackFunctionName = '') {
+            var a = undefined;
+            if (data != undefined) {
+                a = JSON.stringify(data);
+            }
+            $.ajax({
+                type: 'POST',
+                data: a,
+                async: false,
+                contentType: 'application/json',
+                url: '{{settings.sourceAjaxUrl}}' + endpoint,
+                success: function (data) {
+                    var c = CallBackFunctionName == '' ? endpoint + '_After' : CallBackFunctionName;
+                    if (isFunction(window[c]) == true) {
+                        var name = window[c];
+                        name.call(this, data);
+                    }
+                },
+                error: function (data) {
+                    var c = CallBackFunctionName == '' ? endpoint + '_Error' : CallBackFunctionName;
+                    if (isFunction(window[c]) == true) {
+                        var name = window[c];
+                        name.call(this, data);
+                    }
+                }
+            });
+        }
+        $(document).ready(function(){
+             
+            moneyformatreset();
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">

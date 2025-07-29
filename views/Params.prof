@@ -1,0 +1,294 @@
+{{#ifCond gridprop.isGrid "==" 1}} {{>base}} {{/ifCond}}
+
+<style>
+    table.dataTable.stripe tbody tr.odd,
+    table.dataTable.display tbody tr.odd {
+    background-color: #ffffff;
+    }
+
+        table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
+    white-space: nowrap;
+}
+
+    .editor_remove{
+        border: none;
+        background-color: transparent;
+        color: #337ab7;
+    }
+
+    #{{gridprop.gridId}}
+    {
+        width: 100% !important;
+    }
+    table td img {
+        width: 50px;
+        height: 50px;
+    }
+        .adminBaslik{
+  background-color:rgba(255, 0, 180, 0.5);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  padding: 11px 0px 2px 10px;
+}
+.adminBaslik h4{
+    font-weight: 600;
+}
+.dtr-control{
+    vertical-align: middle!important;
+}
+    .detailrow{
+    width: 100%!important;
+}
+.tableResp{
+    width: 70%;
+}
+
+@media screen and (max-width: 1400px) {
+  .tableResp {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 768px) {
+.dt-buttons.btn-group.flex-wrap { 
+    padding-top: 4%;
+}
+}
+</style> 
+<div class="col-12">
+
+<div class="container-fluid">
+
+<table style="margin-top: 40px;" id="{{gridprop.gridId}}" class="display table table-bordered table-hover dataTable dtr-inline">
+    <thead>
+        <tr>
+            <td> Id</td>
+            <td> paramKey</td>
+            <td> paramGroup</td>
+            <td> paramValue</td>
+            <td> paramOrder</td>
+            <td> Düzenle</td>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td class="searchintotext"> paramKey</td>
+            <td class="searchintotext"> paramGroup</td>
+            <td class="searchintotext"> paramValue</td>
+            <td class="searchintotext"> paramOrder</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<script>
+    var mytable = null;
+    function lastclick(e) {
+
+        $.fn.DataTable.ext.pager.pageStart = ($.fn.DataTable.ext.pager.pagecount - 1) * $.fn.DataTable.ext.pager.pageLength
+
+        mytable.page($.fn.DataTable.ext.pager.pagecount - 1).draw(false);
+    }
+    $(document).on('click', '#{{gridprop.gridId}}_next', function () {
+        var p = mytable.page();
+        if (p < ($.fn.DataTable.ext.pager.pagecount - 1)) {
+            p = p + 1;
+            mytable.page(p).draw(false);
+        }
+
+    });
+    $('#{{gridprop.gridId}}').on('draw.dt', function () {
+        var p = mytable.page();
+        if (p >= ($.fn.DataTable.ext.pager.pagecount - 1)) {
+            $("#{{gridprop.gridId}}_last").addClass("disabled");
+            $("#{{gridprop.gridId}}_next").addClass("disabled");
+        }
+        $("#{{gridprop.gridId}}_info").html('<b>' + $.fn.DataTable.ext.pager.recordsTotal + '</b> toplam kayıtdan bu sayfada <b>' + $.fn.DataTable.ext.pager.recordsFiltered + '</b> kayıt görüntülendi.')
+    });
+    $(document).off('click', '#{{gridprop.gridId}}_last');
+    $(document).on('click', '#{{gridprop.gridId}}_last', lastclick);
+    $.fn.DataTable.ext.pager.pagecount = 1;
+    $.fn.DataTable.ext.pager.pageLength = Math.floor(($(window).height() - 50) / 50);
+    $.fn.DataTable.ext.pager.pageStart = 0;
+
+    var sayi1 = 0;
+    var sayi2 = 1;
+    var Firsthidden = true;
+    $(document).ready(function () {
+        mytable = $("#{{gridprop.gridId}}").DataTable({
+            info: true,
+            paging: true,
+            searching: true,
+            pageLength: $.fn.DataTable.ext.pager.pageLength,
+            ordering: true,
+            processing: true,
+            serverSide: true,
+            order: [[2, "asc"]],
+            dom: "Bfrtip",
+            ajax: {
+                url: "/GWAD-Params?CustomCode=" + getParameterByName('CustomCode') + "&hash=ec34f11576fd13f445891d62ae0235d4",
+                type: "POST",
+                data: { gf: $(top.document).find("#iframe_{{gridprop.gridId}}").attr("gf"), start1: $.fn.DataTable.ext.pager.pageStart },
+                dataSrc: function (json) {
+                    $.fn.DataTable.ext.pager.pagecount = json.gridInfo.pagecount;
+                    $.fn.DataTable.ext.pager.pageStart = json.gridInfo.currentStart;
+                    $.fn.DataTable.ext.pager.recordsTotal = json.gridInfo.recordsTotal;
+                    $.fn.DataTable.ext.pager.recordsFiltered = json.gridInfo.recordsFiltered;
+                    return json.gridInfo.data;
+                }
+
+            },
+            bSortClasses: false,
+            responsive: true,
+            responsive: {
+                details: {
+                    renderer: function (api, rowIdx, columns) {
+                        var data = $.map(columns, function (col, i) {
+
+                            background = "#ffffff!important"
+
+                            if (col.hidden) {
+
+                                if (!ismobile) {
+                                    if (Firsthidden) {
+                                        sayi1 = i;
+                                        sayi2 = sayi1 + 1;
+                                        Firsthidden = false;
+                                    }
+
+                                    if (i == sayi1) {
+                                        sayi1 += 4;
+                                        background = "#dddddd42!important"
+
+                                    }
+                                    if (i == sayi2) {
+                                        background = "#dddddd42!important"
+                                        sayi2 += 4;
+                                    }
+                                }
+                                else {
+                                    if (i % 2 == 0) {
+                                        background = "#dddddd42!important"
+                                    }
+                                }
+                            }
+
+                            return col.hidden ?
+                                '<table class="detailrow"> <tr class="col-md-12" style="background-color:' + background + '" data-dt-row="' + col.rowIndex + '" data-dt-column="' + col.columnIndex + '">' +
+                                '<td class="tableResp">' + col.title + ':' + '</td> ' +
+                                '<td>' + col.data + '</td>' +
+                                '</tr> </table>' :
+                                '';
+                        }).join("");
+                        sayi1 = 0;
+                        sayi2 = 1;
+                        Firsthidden = true;
+                        return data ? $('<table style="width:100%"/>').append(data) : false;
+                    }
+                }
+            },
+            pagingType: "full_numbers_no_ellipses",
+            bInfo: false,
+            oLanguage: {
+                "sSearch": "Ara",
+                "sLengthMenu": "Göster _MENU_ Sayfa",
+                "oPaginate": {
+                    "sFirst": "Ilk", // This is the link to the first page
+                    "sPrevious": "Geri", // This is the link to the previous page
+                    "sNext": "Ileri", // This is the link to the next page
+                    "sLast": "Son" // This is the link to the last page
+                }
+            },
+            columns: [
+                { "data": "Id",
+                orderable:false },
+                { "data": "ParamKey" },
+                { "data": "ParamGroup" },
+                { "data": "ParamValue" },
+                { "data": "ParamOrder" },
+                { "data":null,
+                orderable:false,
+                    "responsivePriority": "1",
+                    "render": function (data, type, row, meta) {
+                        var testdata = {}
+                        data = "<a href=\"/Params/" + row.Id + "\" class=\"editor_edit\">Edit</a> / <button data-id='" + row.Id + "' class=\"editor_remove\">Delete</a>";
+                      
+                        return data;
+                    }
+                }
+            ]
+        });
+
+            $("[type='search']").on("keypress", function (e) {
+         if(e.which === 13) {
+                e.preventDefault(); // Prevent form submit
+              if (mytable.search() !== this.value) {
+                    mytable.search(this.value).draw();
+                }
+            }
+            });
+      $("[type='search']").on("keyup", function (e) {
+                 if(this.value =="") {
+                    mytable.search(this.value).draw();
+                  }
+            });
+
+        $("#{{gridprop.gridId}} tfoot .searchintotext").each(function () {
+            var title = $(this).text();
+            $(this).html('<input style="width: 100%;background-color: #fff;border: none;outline: none;padding: 4px;color:black" type="text" placeholder="Ara" />');
+        });
+
+        // Apply the search
+        mytable.columns().every(function () {
+            var that = this;
+
+            $("input", this.footer()).on("keyup", function (e) {
+                  if(this.value =="") {
+                    that.search(this.value).draw();
+                  }
+            });
+
+            $("input", this.footer()).on("keypress", function (e) {
+                  
+                  if(e.which === 13) {
+                    e.preventDefault(); // Prevent form submit
+                if (that.search() !== this.value) {
+                    that.search(this.value).draw();
+                }
+            }
+            });
+            
+            
+        });
+
+        {{#ifCond gridprop.isGrid "==" 1}}
+        $("#{{gridprop.gridId}} tbody").on("click", "tr", function () {
+            $(this).toggleClass("selected");
+        });
+        var a = $(top.document).find("#iframe_{{gridprop.gridId}}").attr("src");
+        var b = $(top.document).find("#iframe_{{gridprop.gridId}}").attr("gf");
+        console.log(a);
+        console.log(b);
+
+        $(top.document).on("click", "#btn_gridSelect", function () {
+            let sdata = mytable.rows(".selected").data();
+            top.{ { gridprop.gridId } } _SelectedData = sdata;
+            top.{ { gridprop.gridId } } _SelectAfter(sdata);
+        });
+        {{/ifCond}}
+
+    });
+    
+    $(document).on('click', ".editor_remove", function () {
+        debugger
+         deleteGridRow("Delete_Params", { Id: $(this).attr("data-id") }, "Delete_After") 
+         })
+
+         
+</script>
+
+{{#ifCond gridprop.isGrid "==" 1}} {{>base2}} {{/ifCond}}

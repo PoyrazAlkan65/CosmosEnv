@@ -1,0 +1,58 @@
+    <section class="lookbook-products position-relative d-none d-md-block">
+      <img class="w-100 h-auto" loading="lazy" src="../../wwwroot/images/conseptImage.jpg" width="1903" height="709" alt="">
+      <h2 class="section-title position-absolute position-top-center fw-normal text-center" style="top: 13.3%;">LIVING ROOM FURNITURE<br><span class="h2 fw-normal">Discount 50%</span></h2>  <!--lookbook-bg.jpg-->
+      <button class="popover-point type2 position-absolute" style="left: 11%; top: 10%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+      <button class="popover-point type2 position-absolute" style="left: 11%; top: 55%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+      <button class="popover-point type2 position-absolute" style="left: 8%; top: 75%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+      <button class="popover-point type2 position-absolute" style="left: 49%; top: 66%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+      <button class="popover-point type2 position-absolute" style="left: 67%; top: 50%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+      <button class="popover-point type2 position-absolute" style="left: 88%; top: 79%;" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="left" data-bs-content='
+        <div class="popover-product">
+          <a href="./product1_simple.html">
+            <img loading="lazy" class="mb-3" src="../images/home/demo9/product-10.jpg" alt="">
+          </a>
+          <p class="fw-medium mb-0"><a href="./product1_simple.html">Cableknit Shawl</a></p>
+          <p class="mb-0">$129</p>
+        </div>
+      '><span>+</span></button>
+    </section>

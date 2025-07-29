@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BenimIcinImzala | Erişim engellendi</title>
+
+
+    <style>
+        body {
+                background: linear-gradient(to right, #FFFFFF,  #FFFFFF);
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .main {
+            background-color: #FFFFFF;
+            width: 400px;
+            height: 400px;
+            /* margin: 7em auto; */
+            border-radius: 1.5em;
+            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sign {
+            padding: 17px;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            font-size: 23px;
+            background:#F8F8F8;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .un {
+            width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        form.form1 {
+            padding-top: 40px;
+        }
+
+        .pass {
+            width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+
+        .un:focus,
+        .pass:focus {
+            border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+        }
+
+        .submit {
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: #713a7e;
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 12%;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            outline: none;
+            border: none;
+            width: 75%;
+        }
+
+        .submit:hover {
+        background-color: #8f6698;
+        border: none;
+    }
+
+        .forgot {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #E1BEE7;
+            padding-top: 15px;
+        }
+
+        a {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #f7b500;
+            text-decoration: none
+        }
+
+        @media (max-width: 600px) {
+            .main {
+                /*border-radius: 0px;*/
+                width: 92%;
+            }
+        }
+
+        #err{    
+            padding-left: 80px;
+            padding-top: 25px;
+            color: red;
+        }       
+         
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p class="sign" align="center"><img src="/wwwroot/images/access.jpg" alt="" style="width: 120px;"></p>
+        
+            <button class="submit btn" class="btn" type="Submit">Anasayfaya Git</button>
+
+    </div>
+
+</body>
+
+</html>

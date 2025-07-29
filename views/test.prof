@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <ul>
+            {{#each data.dosyalar}}
+            <li>
+                {{name}}
+            </li>
+            {{/each}}
+        </ul>
+        <input type="text" name="deleteFiles">
+        <input type="file" name="files" multiple />
+        <button type="submit">Upload</button>
+    </form>
+<hr>
+
+
+
+
+
+</body>
+</html>

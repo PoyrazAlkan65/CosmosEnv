@@ -1,0 +1,227 @@
+  <section class="product-carousel container">
+    <div class="d-flex align-items-center justify-content-md-between flex-wrap mb-3 pb-xl-2 mb-xl-4">
+      <h2 class="section-title fw-semi-bold fs-30 theme-color">Face Mask</h2>
+
+      <a class="btn-link btn-link_md default-underline text-uppercase fw-semi-bold theme-color" href="./shop1.html">See
+        All Products</a>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-20per">
+        <div class="position-relative w-100 h-sm-100 border-radius-4 overflow-hidden minh-240 mb-4 mb-sm-0">
+          <div class="background-img" style="background-image: url('/wwwroot/images/home/demo14/grid_banner_5.jpg');">
+          </div>
+          <div class="content_abs top-0 mx-3 mt-3 mt-xl-4 pt-2 px-2">
+            <p class="mb-1 text-secondary">NEW</p>
+            <h3 class="fs-22 fw-bold mb-3 theme-color">Search Lab N95 Face Mask</h3>
+            <button
+              class="btn btn-outline-primary border-0 fs-12 btn-40 border-circle text-uppercase theme-bg-color text-white px-4 py-2 fw-semi-bold">
+              <span>More Info</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-8 col-lg-9 col-xl-80per">
+        <div id="product_carousel_4" class="position-relative">
+          <div class="swiper-container js-swiper-slider" data-settings='{
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": 4,
+                "slidesPerGroup": 1,
+                "effect": "none",
+                "loop": false,
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "slidesPerGroup": 1,
+                    "spaceBetween": 16
+                  },
+                  "768": {
+                    "slidesPerView": 2,
+                    "slidesPerGroup": 1,
+                    "spaceBetween": 22
+                  },
+                  "992": {
+                    "slidesPerView": 3,
+                    "slidesPerGroup": 1,
+                    "spaceBetween": 28
+                  },
+                  "1200": {
+                    "slidesPerView": 4,
+                    "slidesPerGroup": 1,
+                    "spaceBetween": 30
+                  }
+                }
+              }'>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide product-card product-card_style9 type2">
+                <div class="position-relative pb-3">
+                  <div class="pc__img-wrapper pc__img-wrapper_wide3">
+                    <a href="./product1_simple.html">
+                      <img loading="lazy" src="/wwwroot/images/home/demo14/product-15.jpg" width="260" height="280"
+                        alt="Cropped Faux leather Jacket" class="pc__img">
+                    </a>
+                  </div>
+                  <div class="anim_appear-bottom position-absolute w-100 text-center">
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-add-cart js-open-aside"
+                      data-aside="cartDrawer" title="Add To Cart">
+                      <svg class="d-inline-block" width="14" height="14" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_cart" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-quick-view"
+                      data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
+                      <svg class="d-inline-block" width="18" height="18" viewBox="0 0 18 18"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_view" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase js-add-wishlist"
+                      title="Add To Wishlist">
+                      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_heart" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="pc__info position-relative">
+                  <p class="pc__category">hospital equipment</p>
+                  <h6 class="pc__title"><a href="./product1_simple.html">Anti-Dust Filter, Breathable, 3 Layers of
+                      Purifying</a></h6>
+                  <div class="product-card__price d-flex">
+                    <span class="money price">$29</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide product-card product-card_style9 type2">
+                <div class="position-relative pb-3">
+                  <div class="pc__img-wrapper pc__img-wrapper_wide3">
+                    <a href="./product1_simple.html">
+                      <img loading="lazy" src="/wwwroot/images/home/demo14/product-16.jpg" width="260" height="280"
+                        alt="Cropped Faux leather Jacket" class="pc__img">
+                    </a>
+                  </div>
+                  <div class="anim_appear-bottom position-absolute w-100 text-center">
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-add-cart js-open-aside"
+                      data-aside="cartDrawer" title="Add To Cart">
+                      <svg class="d-inline-block" width="14" height="14" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_cart" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-quick-view"
+                      data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
+                      <svg class="d-inline-block" width="18" height="18" viewBox="0 0 18 18"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_view" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase js-add-wishlist"
+                      title="Add To Wishlist">
+                      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_heart" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="pc__info position-relative">
+                  <p class="pc__category">hospital equipment</p>
+                  <h6 class="pc__title"><a href="./product1_simple.html">Anti-Dust Filter, Breathable, 3 Layers of
+                      Purifying</a></h6>
+                  <div class="product-card__price d-flex">
+                    <span class="money price">$29</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide product-card product-card_style9 type2">
+                <div class="position-relative pb-3">
+                  <div class="pc__img-wrapper pc__img-wrapper_wide3">
+                    <a href="./product1_simple.html">
+                      <img loading="lazy" src="/wwwroot/images/home/demo14/product-17.jpg" width="260" height="280"
+                        alt="Cropped Faux leather Jacket" class="pc__img">
+                    </a>
+                  </div>
+                  <div class="anim_appear-bottom position-absolute w-100 text-center">
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-add-cart js-open-aside"
+                      data-aside="cartDrawer" title="Add To Cart">
+                      <svg class="d-inline-block" width="14" height="14" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_cart" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-quick-view"
+                      data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
+                      <svg class="d-inline-block" width="18" height="18" viewBox="0 0 18 18"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_view" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase js-add-wishlist"
+                      title="Add To Wishlist">
+                      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_heart" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="pc__info position-relative">
+                  <p class="pc__category">hospital equipment</p>
+                  <h6 class="pc__title"><a href="./product1_simple.html">Anti-Dust Filter, Breathable, 3 Layers of
+                      Purifying</a></h6>
+                  <div class="product-card__price d-flex">
+                    <span class="money price">$29</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide product-card product-card_style9 type2">
+                <div class="position-relative pb-3">
+                  <div class="pc__img-wrapper pc__img-wrapper_wide3">
+                    <a href="./product1_simple.html">
+                      <img loading="lazy" src="/wwwroot/images/home/demo14/product-18.jpg" width="260" height="280"
+                        alt="Cropped Faux leather Jacket" class="pc__img">
+                    </a>
+                  </div>
+                  <div class="anim_appear-bottom position-absolute w-100 text-center">
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-add-cart js-open-aside"
+                      data-aside="cartDrawer" title="Add To Cart">
+                      <svg class="d-inline-block" width="14" height="14" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_cart" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase me-2 js-quick-view"
+                      data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
+                      <svg class="d-inline-block" width="18" height="18" viewBox="0 0 18 18"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_view" />
+                      </svg>
+                    </button>
+                    <button class="btn btn-round btn-hover-red border-0 text-uppercase js-add-wishlist"
+                      title="Add To Wishlist">
+                      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon_heart" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="pc__info position-relative">
+                  <p class="pc__category">hospital equipment</p>
+                  <h6 class="pc__title"><a href="./product1_simple.html">Anti-Dust Filter, Breathable, 3 Layers of
+                      Purifying</a></h6>
+                  <div class="product-card__price d-flex">
+                    <span class="money price">$29</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.swiper-wrapper -->
+          </div><!-- /.swiper-container js-swiper-slider -->
+        </div><!-- /.position-relative -->
+      </div>
+    </div>
+  </section>

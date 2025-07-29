@@ -1,0 +1,19 @@
+<div class="shop-categories position-relative">
+  <h2 class="h3 pb-3 mb-3 fw-normal text-uppercase text-center">Kategoriler</h2>
+ 
+  <div class="shop-categories__list d-flex align-items-center flex-wrap justify-content-center">
+     
+     {{#each componentData}}
+     {{#ifCond categoryLevel "==" "1" }}
+      <a href="{{FE_SOURCEAJAXURL}}/category/{{categoryCode}}" class="shop-categories__item mb-3">
+     {{else}}
+     <a href="{{FE_SOURCEAJAXURL}}/categorysub/{{categoryCode}}" class="shop-categories__item mb-3">
+     {{/ifCond}}
+      <img loading="lazy" src="{{categoryImg}}" width="120" height="120" alt="{{categoryTitle}}"
+        class="shop-categories__item-img rounded-circle">
+      <h6 class="pt-1 mt-3 mt-xl-4 mb-0 text-center">{{categoryTitle}}</h6>
+    </a>
+    {{/each}}
+  </div>
+  
+</div><!-- /.shop-categories position-relative -->

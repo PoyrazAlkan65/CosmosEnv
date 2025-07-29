@@ -1,0 +1,3 @@
+.default-menu {
+  @include create-menu($default-menu-padding, $default-menu-width);
+}

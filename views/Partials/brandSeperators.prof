@@ -1,0 +1,44 @@
+<div class="pt-2 pb-2 bg-white">
+  <div class="mb-3 mb-xl-5 pt-1 pb-2"></div>
+
+  <section class="brands-carousel container">
+    <h2 class="d-none">Brands</h2>
+    <div class="position-relative">
+      <div class="swiper-container js-swiper-slider" data-settings='{
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 7,
+              "slidesPerGroup": 7,
+              "effect": "none",
+              "loop": true,
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "slidesPerGroup": 2,
+                  "spaceBetween": 14
+                },
+                "768": {
+                  "slidesPerView": 4,
+                  "slidesPerGroup": 4,
+                  "spaceBetween": 24
+                },
+                "992": {
+                  "slidesPerView": 7,
+                  "slidesPerGroup": 1,
+                  "spaceBetween": 30,
+                  "pagination": false
+                }
+              }
+            }'>
+        <div id="references" class="swiper-wrapper">
+          {{#each componentData}}
+          <div class="swiper-slide">
+            <img loading="lazy" src="{{refImg}}" width="120" height="20" alt="">
+          </div>
+          {{/each}}
+        </div><!-- /.swiper-wrapper -->
+      </div><!-- /.swiper-container js-swiper-slider -->
+    </div><!-- /.position-relative -->
+
+  </section><!-- /.products-carousel container -->

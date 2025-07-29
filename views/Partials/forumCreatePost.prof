@@ -1,0 +1,91 @@
+<h2>Gönderi Oluştur</h2>
+<style>
+  #post_ta {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 20px;
+    line-height: 2rem;
+    font-size: x-large;
+    font-style: oblique;
+  }
+
+  .CreatePost {
+    padding: 20px;
+    border: 1px solid #fefefe;
+  }
+
+  .my-dropzone {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), inset 0 0 40px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+  }
+
+  .my-dropzone.hover {
+    background: #e3e3e3;
+  }
+
+  .dz-preview {
+    width: 100%;
+    height: 90%;
+    
+    float: left;
+  }
+
+  .dz-image {
+    width: 256px;
+    height: 150px;
+    overflow: hidden;
+    margin: 0 auto;
+  
+  }
+
+  .dz-details , .dz-progress,.dz-error-message,.dz-success-mark,.dz-error-mark {
+    width: 256px;
+    margin: 0 auto;
+    position: fixed;
+    top: 10px;
+
+  }
+
+  img[data-dz-thumbnail] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  
+</style>
+
+<div class="CreatePost">
+  <div class="my-dropzone"></div>
+  <textarea id="post_ta" placeholder="Gönderi açıklamasını buraya yazın..."></textarea>
+  <button class="create-post-btn">Gönderi Oluştur</button>
+</div>
+<script>
+  // Dropzone has been added as a global variable.
+
+  var myDropzone = new Dropzone("div.my-dropzone", {
+    url: "{{settings.FE_SOURCEAJAXURL}}postimageupload", // Set the url for your upload script location
+    paramName: "file", // The name that will be used to transfer the file
+    maxFiles: 10,
+    maxFilesize: 10, // MB
+    addRemoveLinks: true,
+    accept: function (file, done) {
+      if (file.name == "wow.jpg") {
+        done("Naha, you don't.");
+      } else {
+        done();
+      }
+    }
+  });
+</script>
+<script>
+  $(document).ready(function () {
+
+  }) 
+</script>

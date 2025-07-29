@@ -1,0 +1,129 @@
+<style>
+    button {
+        position: relative;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        margin: 60px 0 0;
+        padding: 0;
+        width: 170px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: transparent;
+        outline: 0;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .card-danger:not(.card-outline)>.card-header {
+        background-color: rgba(255, 0, 180, 0.5);
+    }
+
+    .adminBaslik {
+        background-color: rgba(255, 0, 180, 0.5);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        padding: 11px 0px 2px 10px;
+    }
+
+    .spin {
+        background-color: rgb(52 58 64);
+        border: none;
+        color: white;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+
+    .spin:hover {
+        background-color: rgb(52 58 64);
+        opacity: 1;
+    }
+</style>
+<div class="col-12">
+    <div class="row adminBaslik">
+
+        <h5> Parametre Ekle </h5>
+    </div>
+</div>
+<form method="post" id="ParamsForm">
+    <input class="form-control" value="35305E74-5EAC-43EB-B54B-ACF88DFAE603" name="SQLOBJCode" id="SQLOBJCode"
+        type="hidden">
+    <input class="form-control" value="35305E74-5EAC-43EB-B54B-ACF88DFAE603" name="TName" id="TName" type="hidden">
+    <input class="form-control" value="Yeni" name="Isnew" id="Isnew" type="hidden">
+    <input class="form-control" value="{{data.0.Id}}" name="Id" id="Id" type="hidden">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+                <label for="">paramKey</label><br>
+                <input value="{{data.0.ParamKey}}" id="paramKey" name="paramKey" type="text" placeholder="paramKey"
+                    class="default form-control">
+                <span id="paramKey_err" class="error"></span>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  form-group">
+                <label for="">paramValue</label><br>
+                <input value="{{data.0.ParamValue}}" id="paramValue" name="paramValue" type="text"
+                    placeholder="paramValue" class="default form-control">
+                <span id="paramValue_err" class="error"></span>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  form-group">
+                <label for="">paramGroup</label><br>
+                <input value="{{data.0.ParamGroup}}" id="paramGroup" name="paramGroup" type="text"
+                    placeholder="paramGroup" class="default form-control">
+                <span id="paramGroup_err" class="error"></span>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  form-group">
+                <label for="">paramOrder</label><br>
+                <input value="{{data.0.ParamOrder}}" id="paramOrder" name="paramOrder" type="number"
+                    placeholder="paramOrder" class="default form-control">
+                <span id="paramOrder_err" class="error"></span>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: right; padding-bottom: 1rem;">
+
+        <button type="button" class="spin" id="spin_Params_cancel">
+            <span>Vazgeç</span>
+        </button>
+
+        <button type="button" class="spin" id="spin_Params_save">
+            <span>Kaydet</span>
+        </button>
+
+    </div>
+</form>
+
+<script>
+    var data = {{{ JSONdata }}};
+    var form = document.getElementById('ParamsForm')
+    $(document).ready(function () {
+        $("#Isnew").val(window.location.pathname.split("/")[2])
+        //CKEDITOR.replace("paramValue");
+    });
+    var target;
+    $("#spin_Params_save").click(function () {
+        var loading = new Loading();
+        target = $(this);
+        if (target.hasClass("done")) {
+            // Do nothing
+        } else {
+            target.addClass("processing");
+            setTimeout(function () {
+                data = {};
+                data.Id = $("#Isnew").val();
+                data.paramKey = $("#paramKey").val();
+                data.paramGroup = $("#paramGroup").val();
+                data.paramValue = $("#paramValue").val();
+                data.paramOrder = $("#paramOrder").val();
+
+                VEPAAJAX("Save-Params", data, 'Save_After');
+            }, 300);
+        }
+    });
+
+    $('#spin_Params_cancel').click(function () {
+        window.location.href = "/Params-List";
+    }
+    )
+</script>

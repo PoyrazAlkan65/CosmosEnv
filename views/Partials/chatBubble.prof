@@ -1,0 +1,100 @@
+<style>
+  .chat-editor-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #message_text {
+    flex: 1;
+    min-height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+
+  #message_text:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  #btnchat-send {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #btnchat-send:hover {
+    background: #0056b3;
+  }
+
+  #btnchat-send i {
+    font-size: 18px;
+  }
+</style>
+
+<form class="chat-editor-area">
+  <div class="emojiarea-editor outline-none scrollbar" id="message_text" contenteditable="true" placeholder="Mesajınızı yazınız."></div>
+  <input class="d-none" type="file" id="chat-file-upload" />
+  <label class="chat-file-upload cursor-pointer" for="chat-file-upload">
+    <span class="fas fa-paperclip"></span>
+  </label>
+  <div class="btn btn-link emoji-icon" data-picmo="data-picmo" data-picmo-input-target=".emojiarea-editor">
+    <span class="far fa-laugh-beam"></span>
+  </div>
+  <button class="btn btn-sm btn-send shadow-none" id="btnchat-send" type="button">
+    <i class="fas fa-paper-plane"></i> 
+  </button>
+</form>
+
+
+<script>
+  // XSS saldırılarını önlemek için HTML içeriğini temizleyen fonksiyon
+  /*
+   function sanitizeHTML(str) {
+       return str.replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+   }
+  */
+  function sanitizeHTML(str) {
+    return str.replace(/[&<>\"']/g, ""); // &, <, >, ", ' karakterlerini tamamen kaldırır.
+  }
+
+  $(document).on("click", "#btnchat-send", function () {
+    let CID = $("#ChatId").val();
+    let message = $("#message_text").html();
+
+    if (message.trim() === "") {
+      alert("Boş mesaj gönderemezsiniz!");
+      return;
+    }
+
+    ProfAJAXPost("AnswerChat", {
+      chatId: CID,
+      UserId: $("#userId").val(),
+      message: message
+    }, "AnswerChat");
+  });
+
+  function AFTER_AnswerChat(data) {
+    window.location.reload();
+  }
+</script>

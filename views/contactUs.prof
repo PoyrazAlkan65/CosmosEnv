@@ -1,0 +1,95 @@
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="contact-us container">
+      <div class="mw-930">
+        <h2 class="page-title">İLETİŞİM</h2>
+      </div>
+    </section>
+    
+   <section class="google-map mb-5">
+  <h2 class="d-none">İLETİŞİM</h2>
+  <div id="map" class="google-map__wrapper">
+  </div>
+</section>
+
+
+    <section class="contact-us container">
+      <div class="mw-930">
+        <div class="row mb-5">
+          <div class="col-lg-6">
+            <h3 class="mb-4">Mercass Platform Hizmetleri</h3>
+            <p class="mb-4"> Mahmutbey Mah. 54. Yol Sok. İstoç 8. Ada No:21 <br>Bağcılar / İstanbul</p>
+            <p class="mb-4">+90 212 912 22 58</p>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="mb-4">Zerone Teknoloji Anonim Şirketi</h3>
+            <p class="mb-4"> Nisbetiye Mahallesi Gazi Güçnar Sokak Uygur İş Merkezi NO:4/7, 34340 <br> Beşiktaş/İstanbul</p>
+            <p class="mb-4">+90 212 912 22 58</p>
+          </div>
+        </div>
+        <div class="contact-us__form">
+          <form name="contact-us-form" class="needs-validation" novalidate>
+            <h3 class="mb-5">Bize Ulaşın</h3>
+            <div class="form-floating my-4">
+              <input type="text" class="form-control" id="contact_us_name" placeholder="İsim*" required>
+              <label for="contact_us_name">İsim*</label>
+            </div>
+            <div class="form-floating my-4">
+              <input type="email" class="form-control" id="contact_us_email" placeholder="E-posta adresi*" required>
+              <label for="contact_us_name">E-posta adresi*</label>
+            </div>
+            <div class="my-4">
+              <textarea class="form-control form-control_gray" placeholder="Mesajınız*" cols="30" rows="8" required></textarea>
+            </div>
+            <div class="my-4">
+              <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (g => {
+      var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+          m = document, b = window; b = b[c] || (b[c] = {});
+      var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || 
+          (h = new Promise(async (f, n) => {
+            await (a = m.createElement("script"));
+            e.set("libraries", [...r] + "");
+            for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+            e.set("callback", c + ".maps." + q);
+            a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+            d[q] = f;
+            a.onerror = () => h = n(Error(p + " could not load."));
+            a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+            m.head.append(a)
+          }));
+      d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && 
+          u().then(() => d[l](f, ...n))
+    })({ key: "AIzaSyAnKJxI0i5KGFgD3QTSg_aXbQk_Ze2kNAw", v: "beta" });
+  </script>
+  <script src="js/googlemap-setting.js"></script>
+
+   <script>
+    function initMap() {
+      const istocLocation = { lat: 41.0699711, lng: 28.8265284 };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: istocLocation,
+        mapTypeId: "roadmap"
+      });
+
+      new google.maps.Marker({
+        position: istocLocation,
+        map: map,
+        title: "İstoç 8. Ada"
+      });
+    }
+
+    (async () => {
+      const { Map, Marker } = await google.maps.importLibrary("maps");
+      initMap();
+    })();
+  </script>

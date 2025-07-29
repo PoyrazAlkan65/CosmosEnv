@@ -1,0 +1,39 @@
+<main>
+  <div class="row">
+    <div class="card-body d-flex p-0 h-100">
+      <form action="/search" method="POST" class="search-forum search-field border-circle w-75" action="/Search">
+        <button class="btn header-search__btn" type="submit">
+          <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <use href="#icon_search" />
+          </svg>
+        </button>
+        <input class="header-search__input w-100" type="text" name="search" id="search" placeholder="Forumda Ara">
+        <div class="hover-container position-relative">
+          <div class="js-hover__open">
+            <input class="header-search__category search-field__actor border-0 bg-white w-100" type="text"
+              name="search-category" placeholder="Kategoriye Göre" readonly>
+          </div>
+          <div class="header-search__category-list js-hidden-content mt-2">
+            <ul class="search-suggestion list-unstyled">
+              {{#each componentData}}
+              <li class="search-suggestion__item js-search-select">{{categoryTitle}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script>
+  const createPostBtn = document.querySelector(".create-post-btn");
+  const popupOverlay = document.getElementById("popupOverlay");
+  const closePopup = document.getElementById("closePopup");
+  const fileInput = document.getElementById("fileInput");
+  const fileNameDisplay = document.getElementById("fileName");
+
+
+
+</script>

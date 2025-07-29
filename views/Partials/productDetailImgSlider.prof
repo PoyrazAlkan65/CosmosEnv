@@ -1,0 +1,38 @@
+<div class="product-single__media" data-media-type="vertical-thumbnail">
+    <div class="product-single__image">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {{#each componentData}}
+                <div class="swiper-slide product-single__image-item">
+                    <img loading="lazy" class="h-auto" src="{{imgUrl}}" width="674" height="674"
+                        alt="">
+                    <a data-fancybox="gallery" href="{{imgUrl}}" data-bs-toggle="tooltip"
+                        data-bs-placement="left" title="Zoom">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_zoom" />
+                        </svg>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <div class="swiper-button-prev"><svg width="7" height="11" viewBox="0 0 7 11"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <use href="#icon_prev_sm" />
+                </svg></div>
+            <div class="swiper-button-next"><svg width="7" height="11" viewBox="0 0 7 11"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <use href="#icon_next_sm" />
+                </svg></div>
+        </div>
+    </div>
+    <div class="product-single__thumbnail">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {{#each componentData}}
+                <div class="swiper-slide product-single__image-item"><img loading="lazy" class="h-auto"
+                        src="{{imgUrl}}" width="104" height="104" alt=""></div>
+                {{/each}}        
+            </div>
+        </div>
+    </div>
+</div>

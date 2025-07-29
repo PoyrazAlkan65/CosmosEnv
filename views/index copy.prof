@@ -1,0 +1,70 @@
+<main>
+
+  {{>slider}}
+
+  {{>brandSeperators}}
+
+  {{>categories}}
+
+  <div class="mb-3 mb-xl-5 pb-3 pt-1 pb-xl-5"></div>
+
+  {{>highlights}}
+
+  <div class="mb-3 mb-xl-5 pb-3 pt-1 pb-xl-5"></div>
+
+  {{>productCard}}
+
+  <div class="mb-3 mb-xl-5 pb-3 pt-1 pb-xl-5"></div>
+
+  {{>featured}}
+
+  <div class="mb-3 mb-xl-5 pb-3 pt-1 pb-xl-5"></div>
+
+  {{>categorizedProductList}}
+
+  <div class="mb-3 mb-xl-5 pb-3 pt-1 pb-xl-5"></div>
+
+  {{>blogCard}}
+
+  <div class="mb-3 mb-xl-4 pb-3 pt-1 pb-xl-4"></div>
+</main>
+
+<script>
+
+  function LoadSlider() {
+        ProfAJAXGet('api/sliders', {}, 'api_sliders');
+  }
+
+  function LoadReferance() {
+    ProfAJAXGet("api/activeReferences", null, "LoadReferance");
+  }
+
+  $(document).ready(function () {
+     LoadReferance();
+     LoadSlider() ;
+    });
+
+  function AFTER_LoadReferance(result) { 
+    let veri = "";
+    for(i =0; i<result.length;i++){
+      veri += `<div class="swiper-slide">
+                <img loading="lazy" src="${result[i].refImg}" width="87" height="20" alt="">
+              </div>`
+    }
+    debugger;
+  
+    $("#references").prepend(veri);
+   console.log(result);
+  }
+
+  function AFTER_api_sliders(result) {
+    console.log(result);
+    displaySliders(result);
+}
+function displaySliders(data) {
+    let sliderContainer = $('#sliderContainer');
+    data.forEach(slider => {
+        sliderContainer.append(`<p>${slider.name}: ${slider.value}</p>`);
+    });
+}
+</script>

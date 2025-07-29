@@ -1,0 +1,199 @@
+<main>
+    <div class="mb-4 pb-4"></div>
+    <section class="login-register container">
+        <h2 class="d-none">Login & Register</h2>
+        <ul class="nav nav-tabs mb-5" id="login_register" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link nav-link_underscore active" id="login-tab" data-bs-toggle="tab"
+                    href="#tab-item-login" role="tab" aria-controls="tab-item-login" aria-selected="true">Giriş Yap</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link nav-link_underscore" id="register-tab" data-bs-toggle="tab" href="#tab-item-register"
+                    role="tab" aria-controls="tab-item-register" aria-selected="false">Kaydol</a>
+            </li>
+        </ul>
+        <div class="tab-content pt-2" id="login_register_tab_content">
+            <div class="tab-pane fade show active" id="tab-item-login" role="tabpanel" aria-labelledby="login-tab">
+                <div class="login-form">
+                    <form name="login-form" class="needs-validation" novalidate>
+                        <div class="form-floating mb-3">
+                            <input name="login_email" type="email" class="form-control form-control_gray"
+                                id="login_email" placeholder="Email*" required>
+                            <label for="customerNameEmailInput1">Email*</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="login_password" type="password" class="form-control form-control_gray"
+                                id="login_password" placeholder="Şifre *" required>
+                            <label for="customerPasswodInput">Şifre *</label>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 pb-2">
+                            <div class="form-check mb-0">
+                                <input name="remember" class="form-check-input form-check-input_fill" type="checkbox"
+                                    value="" id="flexCheckDefault1">
+                                <label class="form-check-label text-secondary" for="flexCheckDefault1">Beni
+                                    Hatırla</label>
+                            </div>
+                            <a href="../resetPassword" class="btn-text ms-auto">Şifremi Unuttum</a>
+                        </div>
+
+                        <p id="hata"></p>
+                        <button id="btnlogin" name="btnlogin" class="btn btn-primary w-100 text-uppercase"
+                            type="button">Giriş Yap</button>
+                        <div class="customer-option mt-4 text-center">
+                            <span class="text-secondary">Henüz Hesabınız Yok Mu?</span>
+                            <a href="#register-tab" class="btn-text js-show-register">Hesap Oluştur</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-item-register" role="tabpanel" aria-labelledby="register-tab">
+                <div class="register-form">
+                    <form name="register-form" class="needs-validation" novalidate>
+                        <div class="form-floating mb-3">
+                            <input name="register_email" type="email" class="form-control form-control_gray"
+                                id="register_email" placeholder="E-mail*" required>
+                            <label for="customerEmailRegisterInput">E-mail*</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="register_username" type="text" class="form-control form-control_gray"
+                                id="register_username" placeholder="Username*" required>
+                            <label for="customerUsernameRegisterInput">Username*</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="register_password" type="password" class="form-control form-control_gray"
+                                id="register_password" placeholder="Parola*" required>
+                            <label for="customerpasswordRegisterInput">Parola*</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input name="register_passwordRepeat" type="password" class="form-control form-control_gray"
+                                id="register_passwordRepeat" placeholder="Parola Tekrar*" required>
+                            <label for="customerpasswordRepeatRegisterInput">Parola Tekrar*</label>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <div class="form-floating mb-3">
+                                    <input name="register_phone" type="text" class="form-control form-control_gray"
+                                        id="register_phone" placeholder="Tel No*" required>
+                                    <label for="customerPhoneRegisterInput">Tel No*</label>
+                                    <input name="register_phone_code" type="text" class="form-control form-control_gray"
+                                        id="register_phone_code" placeholder="Tel No*" required>
+                                    <label for="customerPhoneRegisterInput">Tel No*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <button id="register_approve" type="button" name="register_approve"
+                                        class="form-control form-control_gray form-button">Doğrula</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <select class="form-select form-control_gray select2" id="drpSektor"
+                                        name="drpSektor[]" placeholder="" multiple="multiple" required="required">
+                                        <option value="option1">Seçenek 1</option>
+                                        <option value="option2">Seçenek 2</option>
+                                        <option value="option3">Seçenek 3</option>
+                                    </select>
+                                    <label for="dropdown_1">Sektör*</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 pb-2">
+                            <div class="form-check mb-0">
+                                <input name="remember" class="form-check-input form-check-input_fill" type="checkbox"
+                                    value="" id="flexCheckDefault1">
+                                <label class="form-check-label text-secondary" for="flexCheckDefault1">Beni Hatırla
+                                </label>
+                            </div>
+                            <a href="../resetPassword"  class="btn-text ms-auto">Şifremi Unuttum</a>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 pb-2">
+                            <p class="m-0">Kişisel verileriniz, bu web sitesindeki deneyiminizi desteklemek, hesabınıza
+                                erişimi yönetmek
+                                ve gizlilik politikamızda belirtilen diğer amaçlar için kullanılacaktır.<br>
+                                <b>Bu seçeneğe tıklayarak başvuru sözleşmesini kabul etmiş sayılırsınız.</b>
+                            </p>
+                        </div>
+                        <button id="btnregister" name="btnregister" class="btn btn-primary w-100 text-uppercase"
+                            type="button">Kaydol</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      <div class="mb-3 pb-4"></div>
+    </section>
+</main>
+<script>
+    let btn_approve_stastus = 0;
+    $(document).ready(function () {
+        $("#register_phone_code").hide();
+        $("#register_phone").show();
+        $("#register_approve").text("Doğrula");
+    })
+
+    $(document).on("click", "#btnlogin", function () {
+
+        let userinfo = { login_password: $("#login_password").val(), login_email: $("#login_email").val() };
+        ProfAJAXPost("loginAXAJ", userinfo, "girisyapilan")
+    })
+    function AFTER_girisyapilan(data) {
+        if (data.ErrCode) {
+            $("#hata").text(data.ErrMessage);
+        }
+        else {
+            window.location.href = settings.FE_SOURCEAJAXURL;
+        }
+    }
+    $(document).on("click", "#register_approve", function () {
+        
+
+        if (btn_approve_stastus == 0) {
+            let data = { Tel: $("#register_phone").val() };
+
+            ProfAJAXPost("api/createOTP", data, "SMSSEND")
+        }
+        else {
+
+            let data = { telefon: $("#register_phone").val(), SMSCode: $("#register_phone_code").val() };
+            ProfAJAXPost("api/validOTP", data, "validSMS")
+        }
+
+    })
+    function AFTER_SMSSEND(donendata) {
+        $("#register_phone_code").show();
+        $("#register_phone").hide();
+        $("#register_approve").text("Gönder");
+        btn_approve_stastus = 1;
+    }
+    function AFTER_validSMS(data) {
+        debugger;
+        if (data.istelvalid) {
+            $("#register_approve").text("Ok");
+        }
+        else {
+            $("#register_approve").text("NOT OK");
+        }
+    }
+
+    $(document).on("click", "#btnregister", function () {
+
+        debugger;
+        let userRegisterInfo = { Email: $("#register_email").val(), UserName: $("#register_username").val(), pwd: $("#register_password").val(), PhoneNo: $("#register_phone").val() };
+        console.dir(userRegisterInfo);
+        ProfAJAXPost("api/usersCreate", userRegisterInfo, "kayitolustur");
+
+
+    })
+    function AFTER_kayitolustur(data) {
+        alert("register");
+
+    }
+
+
+
+
+     
+</script>

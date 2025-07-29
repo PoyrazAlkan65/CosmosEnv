@@ -1,0 +1,109 @@
+<main>
+    <style>
+        .selectSGbutton {
+            color: #fff;
+            background-color: #1d1d1d;
+            border-color: #1b1b1b;
+        }
+    </style>
+    <div class="container my-5">
+        <h2 class="text-align-center" style="letter-spacing: 1.5px; margin-bottom:35px;"><b>Kendinize En Uygun Planı
+                Seçin</b></h2>
+        <div class="sglist d-flex justify-content-center mb-4 padding-white">
+            {{#each data.subGroup}}
+            <button class="btn btn-primary mx-2 price-button priceplan" SG="{{SubsGroup}}">{{SubsGroup}} Aylık</button>
+            {{/each}}
+        </div>
+        <div id="pricing-container" class="row">
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                let sg = $(".sglist").children(":first").attr("sg")
+                setSelectSGbutton($(".sglist").children(":first"));
+                renderCards(sg);
+            })
+
+            $(document).on("click", ".priceplan", function () {
+                let Sg = this.getAttribute("SG");
+                setSelectSGbutton(this);
+                renderCards(Sg)
+            })
+            function renderCards(sg) {
+                let html = '';
+                let myCards = renderdata.activeSubscribe.filter(x => x.SubsGroup == sg)
+                for (let i = 0; i < myCards.length; i++) {
+                    let myCard = myCards[i];
+                    html += renderCard(myCard);
+                }
+                $("#pricing-container").html(html);
+                SetGoldCard();
+            }
+
+            function setSelectSGbutton(_this)
+            {
+                $(".priceplan").removeClass("selectSGbutton");
+                $(_this).addClass("selectSGbutton");
+            }
+            function SetGoldCard() {
+                $(".check-orange","div[isGold='true']").addClass("check-white");
+                $(".check-orange","div[isGold='true']").removeClass("check-orange");
+                
+                $(".color-gray","div[isGold='true']").addClass("color-white");
+                $(".color-gray","div[isGold='true']").removeClass("color-gray");
+                
+                $(".platinum-card","div[isGold='true']").addClass("gold-card");
+                $(".platinum-card","div[isGold='true']").removeClass("platinum-card");
+                
+                
+                $(".carddesc","div[isGold='true']").css("backgroundColor","#333");
+                $(".carddesc","div[isGold='true']").css("color","#fff");
+      
+       
+                $(".btn-by","div[isGold='true']").removeClass("bgColor-orange");
+                $(".btn-by","div[isGold='true']").removeClass("color-white");
+
+                $(".cardSubName","div[isGold='true']").addClass("color-white");
+                $(".cardSubprice","div[isGold='true']").addClass("color-white");
+                $(".cardSubprice","div[isGold='true']").addClass("color-white");
+
+                $(".popular-tag","div[isGold='true']").html("POPULER");
+
+            }
+            function renderCard(activeSubscribe) {
+                let myItem = []
+                myItem = renderdata.SubsItem.filter(x => x.SubsId == activeSubscribe.Id)
+                
+
+                return ` <div class="col-md-4" isGold="${activeSubscribe.isSubsGroupRecommend}">
+            <div class="card mb-4 shadow-sm platinum-card">
+                <div class="card-header text-center">
+                    <h4 class="my-0 font-weight-normal cardSubName">${activeSubscribe.subName}</h4>
+                    <h3 class="my-3 cardSubprice">${activeSubscribe.price} ${activeSubscribe.priceUnitSymbol} </h3>
+                    <p class="popular-tag"></p>
+                    <p class="carddesc" style="background-color:#dbdbdb; ">${activeSubscribe.subDesc}</p>
+                </div>
+                <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                   ${myItem.map(renderItem).join("")}
+                    </ul>
+                    <a href="../payment" style="text-decoration: none;">
+                        <button type="button" 
+                            class="btn-by btn btn-lg btn-block btn-outline-primary bgColor-orange color-white"
+                            style="border:none; display: block; margin: 0 auto;">${activeSubscribe.subName} Üyeliği Başlat</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>`
+            }
+            function renderItem(Item) {
+                return `<li><i class="fa-solid fa-check check-orange"></i><b>${Item.Itemtitle}</b></li>
+                        <li class="margin-left-30 color-gray">${Item.ItemDesc}</li>`
+            }
+        </script>
+    </div>
+
+</main>

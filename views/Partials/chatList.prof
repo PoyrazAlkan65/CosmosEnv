@@ -1,0 +1,196 @@
+<input type="hidden" name="userId" id="userId" value="{{user.UsersId}}">
+<input type="hidden" name="ChatId" id="ChatId">
+
+<div class="chat-sidebar">
+  <div class="contacts-list scrollbar-overlay">
+    {{#if data.length}}
+    <div class="nav nav-tabs border-0 flex-column" role="tablist" aria-orientation="vertical">
+      {{#each data}}
+      <div class="hover-actions-trigger chat-contact nav-item active chatlist-item" role="tab" id="chat-link-{{chatId}}"
+        data-bs-toggle="tab" data-bs-target="#chat-{{chatId}}" chatId="{{chatId}}" aria-controls="chat-{{chatId}}"
+        aria-selected="true">
+        <div class="d-md-none d-lg-block">
+          <div class="dropdown dropdown-active-trigger dropdown-chat"><button
+              class="hover-actions btn btn-link btn-sm text-400 dropdown-caret-none dropdown-toggle end-0 fs-9 mt-4 me-1 z-1 pb-2 mb-n2"
+              type="button" data-boundary="viewport" data-bs-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"><span class="fas fa-cog" data-fa-transform="shrink-3 down-4"></span></button>
+            <div class="dropdown-menu dropdown-menu-end border py-2 rounded-2">
+              <button type="button" chatId="{{chatId}}" class="dropdown-item btn-del">Sil</button>
+              <div class="dropdown-divider"></div>
+              {{#ifCond (BooltoStr isread) "==" "false"}}
+              <button type="button" chatId="{{chatId}}" class="dropdown-item btn-read">Okundu Olarak İşaretle</button>
+              {{else}}
+              <button type="button" chatId="{{chatId}}" class="dropdown-item btn-unread">Okunmadı Olarak
+                İşaretle</button>
+              {{/ifCond}}
+            </div>
+          </div>
+        </div>
+        <div class="d-flex p-3" chat-id="{{chatId}}">
+          <div class="avatar avatar-xl">
+            <img class="rounded-circle" src="{{sellerLogo}}" />
+          </div>
+          <div class="flex-1 chat-contact-body ms-2 d-md-none d-lg-block">
+            <div class="d-flex justify-content-between">
+              <h6 class="mb-0 chat-contact-title">{{sellerName}}</h6>
+            </div>
+            <div class="min-w-0">
+              <div class="chat-contact-content pe-3">
+                {{#ifCond (BooltoStr isread) "==" "false"}}
+                <b>{{lastMessage}}</b>
+                {{else}}
+                {{lastMessage}}
+                {{/ifCond}}
+              </div>
+              <div class="position-absolute bottom-0 end-0 hover-hide"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="text-center mt-5">
+      <button id="startNewChat" class="btn btn-primary btn-lg">
+        <i class="fas fa-plus"></i> Yeni Sohbet Başlat
+      </button>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<script>
+  $(document).on("click", ".btn-del", function () {
+    let CID = $(this).attr("chatId")
+    ProfAJAXPost("ChatDel", { chatId: CID }, "delChatListItem")
+  })
+  function AFTER_delChatListItem(data) {
+    if (data.ChatId) {
+      $("#chat-link-" + data.ChatId).hide(500);
+      $("#chat-link-" + data.ChatId).remove();
+    }
+  }
+
+  $(document).on("click", ".btn-read", function () {
+    let CID = $(this).attr("chatId")
+    ProfAJAXPost("ChatRead", { chatId: CID }, "readChatListItem")
+  })
+  function AFTER_readChatListItem(data) {
+    if (data.ChatId) {
+      window.location.reload();
+    }
+  }
+
+  $(document).on("click", ".btn-unread", function () {
+    let CID = $(this).attr("chatId")
+    ProfAJAXPost("ChatUnRead", { chatId: CID }, "unreadChatListItem")
+  })
+  function AFTER_unreadChatListItem(data) {
+    if (data.ChatId) {
+      window.location.reload();
+    }
+  }
+
+  $(document).on("click", ".chatlist-item", function () {
+    let CID = $(this).attr("chatId")
+    $("#ChatId").val(CID);
+    ProfAJAXPost("GetChatMessages", { chatId: CID }, "ShowChatMessage")
+  })
+
+  function AFTER_ShowChatMessage(data) {
+    let htmlSellerProfile = ProfileChatDetailRender(data.seller[0]);
+    $("#sender-profile").html(htmlSellerProfile);
+    let htmlMessage = ProfileChatMessageRender(data.messages, data.seller[0])
+    $("#messagelist").html(htmlMessage)
+    $("#messagelist").scrollTop($("#messagelist")[0].scrollHeight);
+  }
+
+  function ProfileChatDetailRender(seller) {
+    return `<div class="avatar avatar-2xl status-online me-3">
+              <img class="rounded-circle" id="sender-profile-img" src="${seller.sellerLogo}" alt="" />
+            </div>
+            <div class="flex-1">
+              <h6 class="mb-0"><p class="text-decoration-none stretched-link text-700"
+                 id="sender-profile-name" >${seller.sellerName}</p></h6>
+              <p class="mb-0" id="Seller-profile-info">${seller.sellerInfo}</p>
+            </div>`;
+  }
+
+  function ProfileChatMessageRender(messages, seller) {
+    let html = '';
+    let objmess = Object.keys(messages)
+    for (let i = 0; i < objmess.length; i++) {
+      html += `<div class="text-center fs-11 text-500"><span>${_FormatDate(messages[objmess[i]][0].messageDate)}</span></div>`;
+      for (let j = 0; j < messages[objmess[i]].length; j++) {
+        if ($("#userId").val() == messages[objmess[i]][j].senderId) {
+          html += `<div class="d-flex justify-content-end mb-3">
+                    <div class="w-75 bg-primary text-white p-3 rounded-3">
+                      <div class="chat-message">${messages[objmess[i]][j].MessageText}</div>
+                      <div class="text-end fs-11 text-white-50">${_FormatTime(messages[objmess[i]][j].messageDate)}</div>
+                    </div>
+                  </div>`;
+        } else {
+          html += `<div class="d-flex mb-3">
+                    <div class="avatar avatar-l me-2">
+                      <img style="margin-left: 5px" class="rounded-circle" src="${seller.sellerLogo}" alt="" />
+                    </div>
+                    <div style="margin-left: 5px" class="w-75 bg-light p-3 rounded-3">
+                      <div class="chat-message">${messages[objmess[i]][j].MessageText}</div>
+                      <div class="fs-11 text-muted">${_FormatTime(messages[objmess[i]][j].messageDate)}</div>
+                    </div>
+                  </div>`;
+        }
+      }
+    }
+    return html;
+  }
+
+  
+  // Kullanıcı Listesini Yükleme Fonksiyonu
+  function loadUserList(userArray) {
+    $("#userList").empty();
+    userArray.forEach(user => {
+      $("#userList").append(`
+        <li class="list-group-item d-flex align-items-center user-item" data-id="${user.id}">
+          <img src="${user.img}" class="rounded-circle me-2" width="40" height="40">
+          <span>${user.name}</span>
+        </li>
+      `);
+    });
+  }
+
+  
+  $(document).on("click", "#sendMessageBtn", function () {
+    let messageText = $("#messageInput").val();
+    let chatId = $("#ChatId").val();
+    let senderId = $("#userId").val();
+
+    if (messageText.trim() === "") {
+      return;
+    }
+
+    ProfAJAXPost("SendMessage", { chatId: chatId, message: messageText }, "afterMessageSent");
+  });
+
+  function afterMessageSent(data) {
+    if (data.success) {
+      let chatWindow = $("#messagelist");
+
+      // Yeni mesaj HTML'ini oluştur
+      let newMessageHtml = `<div class="d-flex justify-content-end mb-3">
+            <div class="w-75 bg-primary text-white p-3 rounded-3">
+                <div class="chat-message">${data.messageText}</div>
+                <div class="text-end fs-11 text-white-50">${_FormatTime(new Date())}</div>
+            </div>
+        </div>`;
+
+      chatWindow.append(newMessageHtml);
+
+      chatWindow.scrollTop(chatWindow[0].scrollHeight);
+
+      $("#messageInput").val("");
+    } else {
+      alert("Mesaj gönderilirken hata oluştu!");
+    }
+  }
+</script>

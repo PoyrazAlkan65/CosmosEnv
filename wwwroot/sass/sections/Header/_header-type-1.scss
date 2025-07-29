@@ -1,0 +1,24 @@
+.header-desk_type_1 {
+  padding: $header-type-1-padding;
+
+  .logo {
+    margin-right: $header-type-1-logo-space;
+  }
+
+  .header-tools {
+    margin-left: auto;
+    margin-right: -($header-tools-item-padding-x);
+  }
+}
+
+.header-fullwidth {
+  .header-desk_type_1 {
+    padding: 1.25rem 0;
+
+    .header-search {
+      padding-top: 0.6125rem;
+      padding-bottom: 0.5rem;
+      width: 21.5625rem;
+    }
+  }
+}
