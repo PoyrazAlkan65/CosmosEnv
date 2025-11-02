@@ -1,3 +1,0 @@
-{{>button button_value="eren"}}
-{{>button button_value="poyraz"}}
-{{>button button_value="ayşe"}}

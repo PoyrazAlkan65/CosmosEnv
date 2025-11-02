@@ -1,6 +1,0 @@
-<main>
-  <div class="mb-3 mb-xl-4 pb-3 pt-1 pb-xl-4"></div>
-  <section class="products-carousel container">
-    {{>SearchProduct componentData=data.SearchResult}}
-  </section>
-</main>

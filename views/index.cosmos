@@ -1,0 +1,36 @@
+{{!< mainLayout }}
+
+<div class="container-fluid bg-dark text-light py-5">
+  <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-8 text-center">
+      <h1 class="display-4 mb-3 fw-bold text-info">CosmosEnv</h1>
+      <p class="lead mb-4 text-secondary">
+        Akıllı veri ortamı yönetim platformu.<br>
+        CosmosEnv; <b>proje, ortam (environment)</b> ve <b>gizli anahtar</b> yönetimini tek çatı altında toplayarak
+        geliştiricilerin güvenli, izlenebilir ve esnek altyapılar kurmasını sağlar.
+      </p>
+
+      <hr class="border-secondary my-4" style="opacity: 0.3;">
+
+      <h3 class="fw-semibold text-light mt-4">Amaç</h3>
+      <p class="text-secondary mx-auto" style="max-width: 720px;">
+        Geliştiricilerin çoklu ortam yapılarını (Development, Test, Production) merkezi olarak yönetebilmesi,
+        konfigürasyonların sürüm kontrolüne alınması ve gizli verilerin şifreli biçimde saklanması için
+        oluşturulmuş bir yönetim sistemidir.
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="/login" class="btn btn-outline-info btn-lg px-4">Giriş Yap</a>
+        <a href="/projects" class="btn btn-info btn-lg px-4 text-dark fw-semibold">Projeleri Keşfet</a>
+      </div>
+
+      <div class="mt-5 text-muted small">
+        <p>
+          Kaynak Kodu: <a href="https://github.com/PoyrazAlkan65/CosmosEnv" target="_blank" class="text-info text-decoration-none">
+          GitHub - CosmosEnv</a><br>
+          © {{currentYear}} CosmosEnv. Tüm hakları saklıdır.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
