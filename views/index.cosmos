@@ -1,10 +1,31 @@
 {{!< mainLayout }}
 
-<div class="container-fluid bg-dark text-light py-5">
+<style>
+  /* Arka plan animasyonu */
+  #cosmosCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #0d1a26 0%, #000000 100%);
+    z-index: 0;
+  }
+
+  /* İçerik alanı */
+  .cosmos-content {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+
+<canvas id="cosmosCanvas"></canvas>
+
+<div class="cosmos-content container-fluid text-light py-5">
   <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="col-md-8 text-center">
       <h1 class="display-4 mb-3 fw-bold text-info">CosmosEnv</h1>
-      <p class="lead mb-4 text-secondary">
+      <p class="lead mb-4 text-secondary text-light">
         Akıllı veri ortamı yönetim platformu.<br>
         CosmosEnv; <b>proje, ortam (environment)</b> ve <b>gizli anahtar</b> yönetimini tek çatı altında toplayarak
         geliştiricilerin güvenli, izlenebilir ve esnek altyapılar kurmasını sağlar.
@@ -13,7 +34,7 @@
       <hr class="border-secondary my-4" style="opacity: 0.3;">
 
       <h3 class="fw-semibold text-light mt-4">Amaç</h3>
-      <p class="text-secondary mx-auto" style="max-width: 720px;">
+      <p class="text-secondary mx-auto text-light" style="max-width: 720px;">
         Geliştiricilerin çoklu ortam yapılarını (Development, Test, Production) merkezi olarak yönetebilmesi,
         konfigürasyonların sürüm kontrolüne alınması ve gizli verilerin şifreli biçimde saklanması için
         oluşturulmuş bir yönetim sistemidir.
@@ -25,7 +46,7 @@
       </div>
 
       <div class="mt-5 text-muted small">
-        <p>
+        <p class="text-light">
           Kaynak Kodu: <a href="https://github.com/PoyrazAlkan65/CosmosEnv" target="_blank" class="text-info text-decoration-none">
           GitHub - CosmosEnv</a><br>
           © {{currentYear}} CosmosEnv. Tüm hakları saklıdır.
@@ -34,3 +55,63 @@
     </div>
   </div>
 </div>
+
+<script>
+  // ==== Cosmos Arka Plan Animasyonu ====
+  const canvas = document.getElementById('cosmosCanvas');
+  const ctx = canvas.getContext('2d');
+  let width, height, particles;
+
+  const resize = () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  };
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = width / 2;
+      this.y = height / 2;
+      this.radius = Math.random() * 1.2 + 0.2;
+      this.angle = Math.random() * 2 * Math.PI;
+      this.distance = Math.random() * (width / 2);
+      this.speed = 0.001 + Math.random() * 0.002;
+      this.color = `rgba(0,191,166,${Math.random() * 0.8})`;
+    }
+    update() {
+      this.angle += this.speed;
+      this.x = width / 2 + Math.cos(this.angle) * this.distance;
+      this.y = height / 2 + Math.sin(this.angle) * this.distance;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particles = [];
+    for (let i = 0; i < 250; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animate() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.fillRect(0, 0, width, height);
+    for (let p of particles) {
+      p.update();
+      p.draw();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  init();
+  animate();
+</script>

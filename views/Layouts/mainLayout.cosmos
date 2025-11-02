@@ -14,10 +14,10 @@
     }
     nav.navbar {
       background-color: #0F141B;
-      border-bottom: 1px solid #00BFA6;
+      border-bottom: 1px solid rgba(var(--bs-info-rgb));
     }
     nav .navbar-brand {
-      color: #00BFA6 !important;
+      color: rgba(var(--bs-info-rgb)) !important;
       font-weight: 600;
       font-size: 1.3rem;
       letter-spacing: 0.5px;
@@ -27,7 +27,7 @@
       font-weight: 500;
     }
     nav .nav-link:hover {
-      color: #00BFA6 !important;
+      color: rgba(var(--bs-info-rgb)) !important;
     }
     footer {
       border-top: 1px solid rgba(255,255,255,0.1);
